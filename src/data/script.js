@@ -30,7 +30,7 @@ var defaultSettings = {
 var invalidTumblrURLs = [
 	'http://www.tumblr.com/upload/*',
 	'https://www.tumblr.com/upload/*'
-]; // Don't run tumblr savior on these pages.
+]; // Don't run Astrology Remover on these pages.
 
 var settings = defaultSettings;
 var gotSettings = false;
@@ -70,7 +70,7 @@ function detectBrowser() {
 	if (navigator.userAgent.indexOf('Firefox') !== -1) {
 		return 'Firefox';
 	}
-	console.error('Tumblr Savior could not detect your browser.');
+	console.error('Astrology Remover could not detect your browser.');
 	return 'Undetected Browser';
 }
 
@@ -325,7 +325,7 @@ function parseSettings(savedSettings) {
 	try {
 		settings = JSON.parse(savedSettings);
 	} catch (err) {
-		console.warn('Tumblr Savior: Error parsing settings, using defaults.');
+		console.warn('Astrology Remover: Error parsing settings, using defaults.');
 		settings = defaultSettings;
 	}
 
@@ -412,7 +412,7 @@ function checkPost(post) {
 	}
 
 	if (!olPosts) {
-		return console.error('Tumblr Savior doesn\'t know how to handle this page.');
+		return console.error('Astrology Remover doesn\'t know how to handle this page.');
 	}
 
 	if (post.tagName === 'DIV') {
@@ -746,7 +746,7 @@ function safariContextMenuHandler(event) {
 
 function chromeHandleMessage(event) {
 	if (!event) {
-		return console.error('There seems to be something wrong with Tumblr Savior.');
+		return console.error('There seems to be something wrong with Astrology Remover.');
 	}
 
 	parseSettings(event.data);
@@ -796,7 +796,7 @@ function initializeTumblrSavior() {
 		self.postMessage('getSettings');
 		break;
 	default:
-		console.error('I\'m sorry, but Tumblr Savior could not detect which browser you are using.');
+		console.error('I\'m sorry, but Astrology Remover could not detect which browser you are using.');
 	}
 }
 
