@@ -1,15 +1,19 @@
 var defaultSettings = {
-	'version': '0.4.20',
-	'listBlack': ['iphone', 'ipad'],
-	'listWhite': ['bjorn', 'octopus'],
-	'hide_source': true,
+	'version': '0.4.22',
+	'listBlack': ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces', 'The Signs', 'Astrology'],
+	'listWhite': ['patient'],
 	'show_notice': true,
 	'show_words': true,
 	'match_words': true,
+	'ignore_header': false,
+	'ignore_body': false,
+	'ignore_tags': false,
 	'context_menu': true,
 	'white_notice': true,
 	'black_notice': true,
 	'show_tags': true,
+	'disable_on_inbox': false,
+	'hide_source': true,
 	'hide_premium': true,
 	'hide_radar': true,
 	'hide_recommended': true,
@@ -17,5 +21,5 @@ var defaultSettings = {
 	'hide_some_more_blogs': true,
 	'hide_sponsored': true,
 	'hide_trending_badges': true,
-	'disable_on_inbox': false
-}; //initialize default values.
+	'hide_sponsored_notifications': true
+}; // Initialize default values.
