@@ -6,17 +6,21 @@
 // ==/UserScript==
 
 var defaultSettings = {
-	'version': '0.4.20',
-	'listBlack': ['iphone', 'ipad'],
-	'listWhite': ['bjorn', 'octopus'],
-	'hide_source': true,
+	'version': '0.4.22',
+	'listBlack': ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces', 'The Signs', 'Astrology'],
+	'listWhite': ['patient'],
 	'show_notice': true,
 	'show_words': true,
 	'match_words': true,
+	'ignore_header': false,
+	'ignore_body': false,
+	'ignore_tags': false,
 	'context_menu': true,
 	'white_notice': true,
 	'black_notice': true,
 	'show_tags': true,
+	'disable_on_inbox': false,
+	'hide_source': true,
 	'hide_premium': true,
 	'hide_radar': true,
 	'hide_recommended': true,
@@ -24,13 +28,13 @@ var defaultSettings = {
 	'hide_some_more_blogs': true,
 	'hide_sponsored': true,
 	'hide_trending_badges': true,
-	'disable_on_inbox': false
-}; //initialize default values.
+	'hide_sponsored_notifications': true
+}; // Initialize default values.
 
 var invalidTumblrURLs = [
 	'http://www.tumblr.com/upload/*',
 	'https://www.tumblr.com/upload/*'
-]; // Don't run Astrology Remover on these pages.
+]; // Don't run astrology remover on these pages.
 
 var settings = defaultSettings;
 var gotSettings = false;
@@ -70,7 +74,7 @@ function detectBrowser() {
 	if (navigator.userAgent.indexOf('Firefox') !== -1) {
 		return 'Firefox';
 	}
-	console.error('Astrology Remover could not detect your browser.');
+	console.error('AR could not detect your browser.');
 	return 'Undetected Browser';
 }
 
@@ -245,10 +249,13 @@ styleRules = {
 		'.post.post_source_reposition.has_source.generic_source .post_tags { padding-left: 0px; }'
 	],
 	hide_sponsored: [
-		'li.remnantUnitContainer, li.remnant-unit-container, li.sponsored_post {display:none!important;}'
+		'li.remnantUnitContainer, li.remnant-unit-container, li.sponsored_post, div.sponsored_post {display:none!important;}'
 	],
 	hide_trending_badges: [
 		'div.explore-trending-badge-footer {display:none!important;}'
+	],
+	hide_sponsored_notifications: [
+		'li.notification.takeover-container {display:none!important;}'
 	]
 }
 
@@ -325,7 +332,7 @@ function parseSettings(savedSettings) {
 	try {
 		settings = JSON.parse(savedSettings);
 	} catch (err) {
-		console.warn('Astrology Remover: Error parsing settings, using defaults.');
+		console.warn('AR: Error parsing settings, using defaults.');
 		settings = defaultSettings;
 	}
 
@@ -412,7 +419,7 @@ function checkPost(post) {
 	}
 
 	if (!olPosts) {
-		return console.error('Astrology Remover doesn\'t know how to handle this page.');
+		return console.error('AR doesn\'t know how to handle this page.');
 	}
 
 	if (post.tagName === 'DIV') {
@@ -450,12 +457,18 @@ function checkPost(post) {
 	}
 
 	var postText = '';
-	postText += post.querySelector('.post_header').innerHTML.replace(noTags, ' ');
-	postText += post.querySelector('.post_content').innerHTML;
+	var postHeader = post.querySelector('.post_header');
+	var postContent = post.querySelector('.post_content');
+	var postTags = post.querySelector('.post_tags');
 
-	if (post.querySelector('.post_tags')) {
-		postText += post.querySelector('.post_tags').innerHTML.replace(noTags, ' ');
-	}
+	if (!settings.ignore_header)
+		postText += postHeader.innerHTML.replace(noTags, ' ');
+
+	if (!settings.ignore_body)
+		postText += postContent.innerHTML;
+
+	if (postTags && !settings.ignore_tags)
+		postText += postTags.innerHTML.replace(noTags, ' ');
 
 	savedfrom = needstobesaved(postText);
 
@@ -746,7 +759,7 @@ function safariContextMenuHandler(event) {
 
 function chromeHandleMessage(event) {
 	if (!event) {
-		return console.error('There seems to be something wrong with Astrology Remover.');
+		return console.error('There seems to be something wrong with AR.');
 	}
 
 	parseSettings(event.data);
@@ -796,7 +809,7 @@ function initializeTumblrSavior() {
 		self.postMessage('getSettings');
 		break;
 	default:
-		console.error('I\'m sorry, but Astrology Remover could not detect which browser you are using.');
+		console.error('I\'m sorry, but AR could not detect which browser you are using.');
 	}
 }
 

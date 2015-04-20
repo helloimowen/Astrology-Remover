@@ -1,5 +1,5 @@
 {
-	"name": "Astrology Sucks",
+	"name": "Astrology Remover",
 	"version": "0.4.20",
 	"description": "I hate memes. ",
 	"background": {
@@ -8,7 +8,7 @@
 	"browser_action": {
 		"default_icon": "data/Icon-16.png",
 		"default_popup": "data/options.html",
-		"default_title": "Astrology Sucks"
+		"default_title": "Astrology Remover"
 	},
 	"content_scripts": [ {
 		"exclude_globs": [ "http://www.tumblr.com/upload/*", "https://www.tumblr.com/upload/*" ],

@@ -9,8 +9,7 @@
   <body>
     <div id="title">
       <img style="float:left;" src="Icon-64.png">
-      <h1 style="line-height:32px;height:32px;margin-top:16px;">Astrology Remover<span id="browser_span"> </span></h1>
-	  <h3>(Based on Tumblr Savior)</h3>
+      <h1 style="line-height:32px;height:32px;margin-top:16px;">Astrology Remover <span id="browser_span"> </span></h1>
     </div>
     <div id="tabsDiv">
       <ul id="tabs"><li id="listsTab" class="selected"><a href="#lists">Lists</a></li><li id="settingsTab"><a href="#settings">Settings</a></li><li id="saveloadTab"><a href="#saveload">Save/Load</a></li><li id="aboutTab"><a href="#about">About</a></li>
@@ -32,9 +31,14 @@
       </div>
       <div id="backgroundDiv">
         <div id="settingsDiv">
-          <h2>Settings</h2>
-          <div id="hide_source_div">
-            <input type="checkbox" id="hide_source_cb" name="hide_source_cb" /> <label for="hide_source_cb">Hide Tumblr's source attribution.</label>
+          <h2>Astrology Remover Behavior</h2>
+          <div id="ignore_div">
+            <input type="checkbox" id="ignore_header_cb" name="ignore_header_cb" /> 
+            <label for="ignore_header_cb" class="ignore_label">Ignore header</label> 
+            <input type="checkbox" id="ignore_body_cb" name="ignore_body_cb" /> 
+            <label for="ignore_body_cb" class="ignore_label">Ignore body</label> 
+            <input type="checkbox" id="ignore_tags_cb" name="ignore_tags_cb" /> 
+            <label for="ignore_tags_cb" class="ignore_label">Ignore tags</label>
           </div>
           <div id="show_notice_div">
             <input type="checkbox" id="show_notice_cb" name="show_notice_cb" /> <label for="show_notice_cb">Show a notification when something has been hidden.</label>
@@ -57,6 +61,14 @@
           <div id="show_tags_div">
             <input type="checkbox" id="show_tags_cb" name="show_tags_cb" /> <label for="show_tags_cb">Show tags from hidden posts.</label>
           </div>
+          <div id="disable_on_inbox_div">
+            <input type="checkbox" id="disable_on_inbox_cb" name="disable_on_inbox_cb" /> <label for="disable_on_inbox_cb">Do not filter inbox.</label>
+          </div>
+          <br />
+          <h2>Tumblr Behavior</h2>
+          <div id="hide_source_div">
+            <input type="checkbox" id="hide_source_cb" name="hide_source_cb" /> <label for="hide_source_cb">Hide Tumblr's source attribution.</label>
+          </div>
           <div id="hide_radar_div">
             <input type="checkbox" id="hide_radar_cb" name="hide_radar_cb" /> <label for="hide_radar_cb">Hide the radar in the sidebar.</label>
           </div>
@@ -70,7 +82,7 @@
             <input type="checkbox" id="hide_recommended_cb" name="hide_recommended_cb" /> <label for="hide_recommended_cb">Hide recommended posts on the dashboard (ie. "Here's a blog:").</label>
           </div>
           <div id="hide_sponsored_div">
-            <input type="checkbox" id="hide_sponsored_cb" name="hide_sponsored_cb" /> <label for="hide_sponsored_cb">Hide sponsored posts and sponsored links.</label>
+            <input type="checkbox" id="hide_sponsored_cb" name="hide_sponsored_cb" /> <label for="hide_sponsored_cb">Hide sponsored posts.</label>
           </div>
           <div id="hide_some_more_blogs_div">
             <input type="checkbox" id="hide_some_more_blogs_cb" name="hide_some_more_blogs_cb" /> <label for="hide_some_more_blogs_cb">Hide "Some More Blogs".</label>
@@ -78,8 +90,8 @@
           <div id="hide_trending_badges_div">
             <input type="checkbox" id="hide_trending_badges_cb" name="hide_trending_badges_cb" /> <label for="hide_trending_badges_cb">Hide trending badges.</label>
           </div>
-          <div id="disable_on_inbox_div">
-            <input type="checkbox" id="disable_on_inbox_cb" name="disable_on_inbox_cb" /> <label for="disable_on_inbox_cb">Do not filter inbox.</label>
+          <div id="hide_sponsored_notifications_div">
+            <input type="checkbox" id="hide_sponsored_notifications_cb" name="hide_sponsored_notifications_cb" /> <label for="hide_sponsored_notifications_cb">Hide sponsored notifications.</label>
           </div>
         </div>
         <div id="saveloadDiv">
@@ -89,8 +101,8 @@
         </div>
         <div id="aboutDiv">
           <h2>About</h2><br />
-          <p><a href="http://tumblr-savior.bjornstar.com/" target="_blank">Astrology Remover</a> is a class project by Owen Sanders made for Innovation 180 at Champlain College. It is based heavily on <a href="http://bjornstar.com/about" target="_blank">Bjorn Stromberg's</a> Tumblr Savior </p><br />
-          <p>This extension is open source and all source code can be found at <a href="https://github.com/bjornstar/Tumblr-Savior" target="_blank">https://github.com/bjornstar/Tumblr-Savior</a>.</p><br />
+          <p>Astrology Remover is a browser extension created by Owen Sanders for his innovation 180 final. It is based heavily on Tumblr Savior by <a href="http://bjornstar.com/about" target="_blank">Bjorn Stromberg</a> to improve his experience on <a href="http://www.tumblr.com/" target="_blank">Tumblr</a>.</p><br />
+          <p>The original project can be found at <a href="https://github.com/bjornstar/Tumblr-Savior" target="_blank">https://github.com/bjornstar/Tumblr-Savior</a>.</p><br />
           <p class="disclaimer">Disclaimer: Astrology Remover is neither affiliated with nor supported by <a href="http://www.tumblr.com/" target="_blank">Tumblr</a> in any way.</p>
           <p>
         </div>
