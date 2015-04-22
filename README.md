@@ -1,4 +1,4 @@
-#Tumblr Savior
+#Astrology Remover
 
 Astrology Remover is a browser extension created by Owen Sanders for his innovation 180 final. It is based heavily on Tumblr Savior by Bjorn Stromberg.
 
